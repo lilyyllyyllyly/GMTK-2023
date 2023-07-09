@@ -9,8 +9,6 @@ public partial class CharacterChooser : Node2D
 	[Export] private NodePath _selectPath;
 	private Node2D _selectArea;
 
-	[Export] private NodePath _dummyPath;
-
 	public override void _Ready()
 	{
 		_input = GetNode<PlayerInput>(_inputPath);
@@ -28,11 +26,15 @@ public partial class CharacterChooser : Node2D
 
 	public void Select(Node2D body)
 	{
+		Character character = body.GetNode<Character>(".");
+
+		if (character.stun == true) return;
+
 		if (_input.player != null) {
-			_input.player.GetNode<Character>(".").ChangeInput(GetNode<IInput>(_dummyPath));
+			_input.player.GetNode<Character>(".").ChangeInput((IInput)(new DummyInput()));
 		}
 
-		body.GetNode<Character>(".").ChangeInput((IInput)_input);
+		character.ChangeInput((IInput)_input);
 		_input.player = body;
 	}
 }

@@ -12,6 +12,8 @@ public partial class Tentacle : Enemy
 	private Timer _attackTimer;
 	[Export] private NodePath _warnTimerPath;
 	private Timer _warnTimer;
+	[Export] private NodePath killTimerPath;
+	public Timer killTimer;
 
 	[Export] private NodePath _spritePath;
 	private Sprite2D _sprite;
@@ -32,13 +34,15 @@ public partial class Tentacle : Enemy
 		_atkLeft.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
 		_atkRight.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
 
+		_left = GlobalPosition.X < GetViewport().GetVisibleRect().Size.X/2;
+
 		_sprite = GetNode<Sprite2D>(_spritePath);
 		_sprite.ZIndex = Mathf.FloorToInt(GlobalPosition.Y);
-
-		_left = GlobalPosition.X < GetViewport().GetVisibleRect().Size.X/2;
+		_sprite.FlipH = !_left;
 
 		_attackTimer = GetNode<Timer>(_attackTimerPath);
 		_warnTimer = GetNode<Timer>(_warnTimerPath);
+		killTimer = GetNode<Timer>(killTimerPath);
 
 		_anim = GetNode<AnimationPlayer>(_animPath);
 	}
@@ -59,7 +63,7 @@ public partial class Tentacle : Enemy
 	{
 		WarnSetEnabled(false);
 		AttackSetEnabled(true);
-		_anim.Play("Attack");
+		_anim.Play(_left ? "AttackLeft" : "AttackRight");
 	}
 	
 	// Connected to WarnTimer (Timer) timeout()
@@ -71,11 +75,25 @@ public partial class Tentacle : Enemy
 	// Connected to AnimationPlayer (AnimationPlayer) animation_finished(anim_name: StringName)
 	public void OnAnimationFinished(StringName anim_name)
 	{
-		if (anim_name != "Attack") return;
+		if (anim_name == "Killing") GD.Print("dhfjkjkdhs");
+		string[] animations = {"AttackLeft", "AttackRight", "Killing"};
+		if (!Array.Exists(animations, e => e == anim_name)) return;
+
+		if (!canCatch) {
+			_anim.Play("Killing");
+			killTimer.Start();
+			return;
+		}
 
 		AttackSetEnabled(false);
 		_attackTimer.Start();
 		_warnTimer.Start();
+		_anim.Play("Default");
+	}
+
+	// Connected to KillTimer (Timer) timeout()
+	public void OnKillFinished()
+	{
 		_anim.Play("Default");
 	}
 

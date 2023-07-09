@@ -1,13 +1,50 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfjkx88uh837k"]
+[gd_scene load_steps=14 format=3 uid="uid://dfjkx88uh837k"]
 
 [ext_resource type="Script" path="res://Scripts/Tentacle.cs" id="1_kp5vb"]
 [ext_resource type="Texture2D" uid="uid://dcid743k5y06h" path="res://Placeholder/403-4034186_tentacle-sticker-octopus-tentacle-png.jpg" id="2_3yci6"]
+[ext_resource type="Script" path="res://Scripts/DecreaseTime.cs" id="3_f7bes"]
 
 [sub_resource type="Animation" id="Animation_3yhux"]
 resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../GrabArea/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GrabArea/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -111)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_i5x0v"]
-resource_name = "Attack"
+resource_name = "AttackLeft"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -21,11 +58,166 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 6.28319]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GrabArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GrabArea/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -111), Vector2(0, 111), Vector2(0, -111)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.7), Vector2(0.2, 0.2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AttackLeft/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AttackRight/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jg47b"]
+resource_name = "AttackRight"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GrabArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../GrabArea/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -111), Vector2(0, 111), Vector2(0, -111)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.7), Vector2(0.2, 0.2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AttackLeft/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AttackRight/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2bj17"]
+resource_name = "Killing"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.175, 0.225), Vector2(0.2, 0.2), Vector2(0.175, 0.225), Vector2(0.2, 0.2)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cclsd"]
 _data = {
-"Attack": SubResource("Animation_i5x0v"),
-"Default": SubResource("Animation_3yhux")
+"AttackLeft": SubResource("Animation_i5x0v"),
+"AttackRight": SubResource("Animation_jg47b"),
+"Default": SubResource("Animation_3yhux"),
+"Killing": SubResource("Animation_2bj17")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbiub"]
@@ -36,6 +228,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppwm7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iowqe"]
+size = Vector2(840, 38)
+
 [node name="Tentacle" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
@@ -44,12 +239,13 @@ _atkLeftPath = NodePath("AttackLeft")
 _atkRightPath = NodePath("AttackRight")
 _attackTimerPath = NodePath("AttackTimer")
 _warnTimerPath = NodePath("WarnTimer")
+killTimerPath = NodePath("KillTimer")
 _spritePath = NodePath("Sprite2D")
 _animPath = NodePath("Sprite2D/AnimationPlayer")
 _maxHealth = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 6.28319
+rotation = -6.28319
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_3yci6")
 
@@ -70,6 +266,7 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackLeft"]
 shape = SubResource("RectangleShape2D_ncxir")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackLeft"]
 modulate = Color(1, 0.701961, 0, 0.431373)
@@ -84,6 +281,7 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRight"]
 shape = SubResource("RectangleShape2D_ppwm7")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackRight"]
 modulate = Color(1, 0.701961, 0, 0.431373)
@@ -94,13 +292,27 @@ texture = SubResource("PlaceholderTexture2D_u7xoj")
 wait_time = 3.5
 one_shot = true
 autostart = true
+script = ExtResource("3_f7bes")
 
 [node name="WarnTimer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
 autostart = true
 
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(0, -111)
+shape = SubResource("RectangleShape2D_iowqe")
+disabled = true
+
 [connection signal="area_entered" from="." to="." method="Collide"]
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="OnAnimationFinished"]
 [connection signal="timeout" from="AttackTimer" to="." method="Attack"]
 [connection signal="timeout" from="WarnTimer" to="." method="Warn"]
+[connection signal="timeout" from="KillTimer" to="." method="OnKillFinished"]

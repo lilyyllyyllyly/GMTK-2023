@@ -31,8 +31,34 @@ public partial class Character : Movable
 	// Connected to StunCheck (Area2D) area_entered(area: Area2D)
 	public void StunCollide(Node2D area)
 	{
+		Tentacle tentacle = area.GetNode<Tentacle>("..");
+		if (!tentacle.canCatch) return;
+
 		ChangeInput((IInput)(new DummyInput()));
 		stun = true;
-		area.GetNode<Tentacle>(".").canCatch = false;
+		tentacle.canCatch = false;
+	}
+
+	// Connected to StunCheck (Area2D) area_exited(area: Area2D)
+	public void StunRelease(Node2D area)
+	{
+		stun = false;
+	}
+
+	// Connected to AttackCheck (Area2D) area_entered(area: Area2D)
+	public void AttackCollide(Node2D area)
+	{
+		area.GetNode<ISpawnee>("..").die += OnTentacleDie;
+		area.GetNode<Tentacle>("..").killTimer.Timeout += QueueFree;
+		stun = false;
+		Visible = false;
+		SetProcess(false);
+	}
+
+	public void OnTentacleDie(int id)
+	{
+		GD.Print("IT WORKED?????");
+		Visible = true;
+		SetProcess(true);
 	}
 }
