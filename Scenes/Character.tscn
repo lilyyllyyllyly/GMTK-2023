@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjlg41rqhoe1h"]
+
+[ext_resource type="Script" path="res://Scripts/Character.cs" id="1_6dveg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_67uip"]
+width = 16
+height = 16
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_16dus"]
+radius = 8.0
+height = 16.0
+
+[node name="Character" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_mask = 32769
+script = ExtResource("1_6dveg")
+_weaponPath = NodePath("")
+_inputPath = NodePath("")
+_maxSpeed = 300.0
+_maxAccel = 37.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_67uip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_16dus")
+
+[node name="StunCheck" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StunCheck"]
+shape = SubResource("CapsuleShape2D_16dus")
+
+[node name="AttackCheck" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
+shape = SubResource("CapsuleShape2D_16dus")
+
+[connection signal="area_entered" from="StunCheck" to="." method="StunCollide"]

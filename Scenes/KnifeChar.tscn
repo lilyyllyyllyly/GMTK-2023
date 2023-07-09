@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ephdv0lq6bis"]
+
+[ext_resource type="PackedScene" uid="uid://bjlg41rqhoe1h" path="res://Scenes/Character.tscn" id="1_q3xe8"]
+[ext_resource type="PackedScene" uid="uid://40dptmvef1v8" path="res://Scenes/Knife.tscn" id="2_55lhd"]
+
+[node name="KnifeChar" instance=ExtResource("1_q3xe8")]
+_weaponPath = NodePath("Knife")
+
+[node name="Knife" parent="." index="2" instance=ExtResource("2_55lhd")]
