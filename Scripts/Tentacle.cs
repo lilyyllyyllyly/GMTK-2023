@@ -21,7 +21,7 @@ public partial class Tentacle : Enemy
 	private AnimationPlayer _anim;
 	
 	private bool _left;
-	public bool canCatch = true;
+	public bool caught;
 
 	public override void _Ready()
 	{
@@ -55,7 +55,6 @@ public partial class Tentacle : Enemy
 	private void AttackSetEnabled(bool enabled) {
 		if (_left) _atkRight.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = !enabled;
 		else	    _atkLeft.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = !enabled;
-		canCatch = true;
 	}
 
 	// Connected to AttackTimer (Timer) timeout()
@@ -75,11 +74,10 @@ public partial class Tentacle : Enemy
 	// Connected to AnimationPlayer (AnimationPlayer) animation_finished(anim_name: StringName)
 	public void OnAnimationFinished(StringName anim_name)
 	{
-		if (anim_name == "Killing") GD.Print("dhfjkjkdhs");
 		string[] animations = {"AttackLeft", "AttackRight", "Killing"};
 		if (!Array.Exists(animations, e => e == anim_name)) return;
 
-		if (!canCatch) {
+		if (caught) {
 			_anim.Play("Killing");
 			killTimer.Start();
 			return;
@@ -94,7 +92,9 @@ public partial class Tentacle : Enemy
 	// Connected to KillTimer (Timer) timeout()
 	public void OnKillFinished()
 	{
+		OnAnimationFinished("Killing");
 		_anim.Play("Default");
+		caught = false;
 	}
 
 	// Connected to Tentacle (Area2D) area_entered(area: Area2D)

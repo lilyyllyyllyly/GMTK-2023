@@ -30,7 +30,7 @@ public partial class CharacterChooser : Node2D
 
 		if (character.stun == true) return;
 
-		if (_input.player != null) {
+		if (IsInstanceValid(_input.player)) {
 			_input.player.GetNode<Character>(".").ChangeInput((IInput)(new DummyInput()));
 		}
 

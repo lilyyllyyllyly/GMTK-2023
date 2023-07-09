@@ -6,6 +6,10 @@ public partial class Character : Movable
 	[Export] private NodePath _weaponPath;
 	private Weapon _weapon;
 	public bool stun;
+	private Tentacle _tentacle;
+
+	[Export] private NodePath _stunPath;
+	private Timer _stunTimer;
 
 	public override void _Ready()
 	{
@@ -13,6 +17,8 @@ public partial class Character : Movable
 
 		if (_weaponPath != "") _weapon = GetNode<Weapon>(_weaponPath);
 		ChangeInput(_input);
+
+		_stunTimer = GetNode<Timer>(_stunPath);
 	}
 
 	public void ChangeInput(IInput input)
@@ -32,15 +38,15 @@ public partial class Character : Movable
 	public void StunCollide(Node2D area)
 	{
 		Tentacle tentacle = area.GetNode<Tentacle>("..");
-		if (!tentacle.canCatch) return;
 
 		ChangeInput((IInput)(new DummyInput()));
 		stun = true;
-		tentacle.canCatch = false;
+		_stunTimer.Start();
+		area.GetNode<ISpawnee>("..").die += (id) => StunRelease();
 	}
 
-	// Connected to StunCheck (Area2D) area_exited(area: Area2D)
-	public void StunRelease(Node2D area)
+	// Connected to StunTimer (Timer) timeout()
+	public void StunRelease()
 	{
 		stun = false;
 	}
@@ -48,17 +54,39 @@ public partial class Character : Movable
 	// Connected to AttackCheck (Area2D) area_entered(area: Area2D)
 	public void AttackCollide(Node2D area)
 	{
+		if (!stun) return;
+
+		_tentacle = area.GetNode<Tentacle>("..");
+		_tentacle.caught = true;
+		_tentacle.killTimer.Timeout += QueueFree;
 		area.GetNode<ISpawnee>("..").die += OnTentacleDie;
-		area.GetNode<Tentacle>("..").killTimer.Timeout += QueueFree;
+
 		stun = false;
-		Visible = false;
-		SetProcess(false);
+		CallDeferred("Disable");
 	}
 
 	public void OnTentacleDie(int id)
 	{
-		GD.Print("IT WORKED?????");
-		Visible = true;
-		SetProcess(true);
+		CallDeferred("Enable");
+	}
+
+	private void Disable()
+	{
+		Hide();
+		ProcessMode = (ProcessModeEnum)4; // PROCESS_MODE_DISABLED
+	}
+
+	private void Enable()
+	{
+		Show();
+		ProcessMode = (ProcessModeEnum)0; // PROCESS_MODE_INHERIT
+	}
+
+	public override void _ExitTree()
+	{
+		if (!IsInstanceValid(_tentacle)) return;
+		_tentacle.GetNode<ISpawnee>(".").die -= OnTentacleDie;
+		_tentacle.GetNode<ISpawnee>(".").die -= (id) => StunRelease();
+		_tentacle.killTimer.Timeout -= QueueFree;
 	}
 }

@@ -15,6 +15,7 @@ scale = Vector2(2, 2)
 collision_mask = 32769
 script = ExtResource("1_6dveg")
 _weaponPath = NodePath("")
+_stunPath = NodePath("StunTimer")
 _inputPath = NodePath("")
 _maxSpeed = 300.0
 _maxAccel = 37.5
@@ -37,6 +38,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackCheck"]
 shape = SubResource("CapsuleShape2D_16dus")
 
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="area_entered" from="StunCheck" to="." method="StunCollide"]
-[connection signal="area_exited" from="StunCheck" to="." method="StunRelease"]
 [connection signal="area_entered" from="AttackCheck" to="." method="AttackCollide"]
+[connection signal="timeout" from="StunTimer" to="." method="StunRelease"]

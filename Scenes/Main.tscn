@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://dqmef17g06kso"]
+[gd_scene load_steps=16 format=3 uid="uid://dqmef17g06kso"]
 
+[ext_resource type="Script" path="res://Scripts/DecreaseTime.cs" id="1_j3j53"]
 [ext_resource type="Script" path="res://Scripts/Spawner.cs" id="1_ke4m2"]
 [ext_resource type="PackedScene" uid="uid://dfjkx88uh837k" path="res://Scenes/Tentacle.tscn" id="2_fbgma"]
 [ext_resource type="PackedScene" uid="uid://ephdv0lq6bis" path="res://Scenes/KnifeChar.tscn" id="3_e3307"]
@@ -12,6 +13,7 @@ offsets = PackedFloat32Array(0.473333)
 colors = PackedColorArray(0.47, 0.47, 0.47, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qahmq"]
+noise_type = 4
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4p3t"]
 color_ramp = SubResource("Gradient_p62il")
@@ -38,8 +40,11 @@ radius = 58.5491
 [node name="Main" type="Node2D"]
 
 [node name="TentacleTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.5
 autostart = true
+script = ExtResource("1_j3j53")
+_div = 20000.0
+_min = 2.0
 
 [node name="TentacleSpawner" type="Node" parent="."]
 script = ExtResource("1_ke4m2")
