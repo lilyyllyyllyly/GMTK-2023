@@ -54,7 +54,6 @@ shader = ExtResource("10_81m5x")
 
 [node name="TentacleTimer" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 script = ExtResource("1_j3j53")
 _div = 20000.0
 _min = 2.0
@@ -132,6 +131,8 @@ _rotOffset = 180.0
 script = ExtResource("6_ngh10")
 _inputPath = NodePath("..")
 _selectPath = NodePath("SelectArea")
+_textPath = NodePath("../../Label")
+_timerPath = NodePath("../../TentacleTimer")
 
 [node name="SelectArea" type="Area2D" parent="PlayerInput/CharacterChooser"]
 collision_layer = 0
@@ -164,6 +165,19 @@ material = SubResource("ShaderMaterial_n0aaw")
 position = Vector2(978.75, 555.75)
 scale = Vector2(1958.5, 1112.5)
 texture = SubResource("PlaceholderTexture2D_q2kpk")
+
+[node name="Label" type="Label" parent="."]
+z_index = 4096
+offset_left = 464.0
+offset_top = 48.0
+offset_right = 1489.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 48
+text = "Right click to switch between crew members
+Left click to shoot
+
+Switch to a crew member to start"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="TentacleTimer" to="TentacleSpawner" method="Spawn"]
 [connection signal="body_entered" from="PlayerInput/CharacterChooser/SelectArea" to="PlayerInput/CharacterChooser" method="Select"]

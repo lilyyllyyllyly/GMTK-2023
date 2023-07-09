@@ -9,11 +9,20 @@ public partial class CharacterChooser : Node2D
 	[Export] private NodePath _selectPath;
 	private Node2D _selectArea;
 
+	private bool _firstPick = true;
+	[Export] private NodePath _textPath;
+	private Label _text;
+	[Export] private NodePath _timerPath;
+	private Timer _spawnerTimer;
+
 	public override void _Ready()
 	{
 		_input = GetNode<PlayerInput>(_inputPath);
 		_selectArea = GetNode<Node2D>(_selectPath);
 		_selectArea.SetProcess(false);
+
+		_text = GetNode<Label>(_textPath);
+		_spawnerTimer = GetNode<Timer>(_timerPath);
 	}
 
 	public override void _Process(double delta)
@@ -36,5 +45,11 @@ public partial class CharacterChooser : Node2D
 
 		character.ChangeInput((IInput)_input);
 		_input.player = body;
+
+		if (_firstPick) {
+			_text.QueueFree();
+			_spawnerTimer.Start();
+			_firstPick = false;
+		}
 	}
 }
