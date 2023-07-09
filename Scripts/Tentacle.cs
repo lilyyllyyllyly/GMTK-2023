@@ -16,7 +16,7 @@ public partial class Tentacle : Enemy
 	public Timer killTimer;
 
 	[Export] private NodePath _spritePath;
-	private Sprite2D _sprite;
+	private AnimatedSprite2D _sprite;
 	[Export] private NodePath _animPath;
 	private AnimationPlayer _anim;
 	
@@ -36,9 +36,10 @@ public partial class Tentacle : Enemy
 
 		_left = GlobalPosition.X < GetViewport().GetVisibleRect().Size.X/2;
 
-		_sprite = GetNode<Sprite2D>(_spritePath);
-		_sprite.ZIndex = Mathf.FloorToInt(GlobalPosition.Y);
+		_sprite = GetNode<AnimatedSprite2D>(_spritePath);
+		_sprite.ZIndex = Mathf.FloorToInt(GlobalPosition.Y) + 11;
 		_sprite.FlipH = !_left;
+		_sprite.Play();
 
 		_attackTimer = GetNode<Timer>(_attackTimerPath);
 		_warnTimer = GetNode<Timer>(_warnTimerPath);
@@ -95,6 +96,11 @@ public partial class Tentacle : Enemy
 		OnAnimationFinished("Killing");
 		_anim.Play("Default");
 		caught = false;
+	}
+
+	public void OnAnimStarted(StringName anim_name)
+	{
+		_sprite.Play();
 	}
 
 	// Connected to Tentacle (Area2D) area_entered(area: Area2D)

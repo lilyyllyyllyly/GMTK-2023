@@ -11,7 +11,7 @@ _tipPath = NodePath("Tip")
 _shootDelay = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_acggl")
 offset = Vector2(500, 0)
 flip_h = true

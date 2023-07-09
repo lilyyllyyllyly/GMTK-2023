@@ -101,3 +101,8 @@ select={
 2d_physics/layer_5="Attack"
 2d_physics/layer_6="PlayerCheck"
 2d_physics/layer_16="Boat"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.172549, 0.227451, 0.396078, 1)

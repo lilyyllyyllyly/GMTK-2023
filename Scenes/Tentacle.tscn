@@ -1,8 +1,409 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfjkx88uh837k"]
+[gd_scene load_steps=110 format=3 uid="uid://dfjkx88uh837k"]
 
 [ext_resource type="Script" path="res://Scripts/Tentacle.cs" id="1_kp5vb"]
-[ext_resource type="Texture2D" uid="uid://dcid743k5y06h" path="res://Placeholder/403-4034186_tentacle-sticker-octopus-tentacle-png.jpg" id="2_3yci6"]
+[ext_resource type="Texture2D" uid="uid://w6uvnxo1fr2e" path="res://Sprites/tentacleAttack/tentacleattack0001.png" id="2_uqhnh"]
+[ext_resource type="Texture2D" uid="uid://dv2has8pq710k" path="res://Sprites/tentacleAttack/tentacleattack0002.png" id="3_8dses"]
 [ext_resource type="Script" path="res://Scripts/DecreaseTime.cs" id="3_f7bes"]
+[ext_resource type="Texture2D" uid="uid://c8wd6lkke20dq" path="res://Sprites/tentacleAttack/tentacleattack0003.png" id="4_054en"]
+[ext_resource type="Texture2D" uid="uid://ukyerhnk7eao" path="res://Sprites/tentacleAttack/tentacleattack0004.png" id="5_xk01g"]
+[ext_resource type="Texture2D" uid="uid://d1n1sa5snlmyl" path="res://Sprites/tentacleAttack/tentacleattack0005.png" id="6_8cl1p"]
+[ext_resource type="Texture2D" uid="uid://c060ulo5yoa3g" path="res://Sprites/tentacleAttack/tentacleattack0006.png" id="7_q472e"]
+[ext_resource type="Texture2D" uid="uid://gq1c87vhiucn" path="res://Sprites/tentacleAttack/tentacleattack0007.png" id="8_80ss0"]
+[ext_resource type="Texture2D" uid="uid://bp8e6g436q78p" path="res://Sprites/tentacleAttack/tentacleattack0008.png" id="9_y6rpi"]
+[ext_resource type="Texture2D" uid="uid://o5s2ftbb48v2" path="res://Sprites/tentacleAttack/tentacleattack0009.png" id="10_asy5v"]
+[ext_resource type="Texture2D" uid="uid://1hrl24owvnp3" path="res://Sprites/tentacleAttack/tentacleattack0010.png" id="11_l2qlp"]
+[ext_resource type="Texture2D" uid="uid://7cpqsvkv10bl" path="res://Sprites/tentacleAttack/tentacleattack0011.png" id="12_ty4k8"]
+[ext_resource type="Texture2D" uid="uid://bygts8xek7qym" path="res://Sprites/tentacleAttack/tentacleattack0012.png" id="13_30pi1"]
+[ext_resource type="Texture2D" uid="uid://cd4d66huei38k" path="res://Sprites/tentacleAttack/tentacleattack0013.png" id="14_mrt62"]
+[ext_resource type="Texture2D" uid="uid://b42lluh8byl8q" path="res://Sprites/tentacleAttack/tentacleattack0014.png" id="15_ubylk"]
+[ext_resource type="Texture2D" uid="uid://cbp5wthfhex5c" path="res://Sprites/tentacleAttack/tentacleattack0015.png" id="16_4bux0"]
+[ext_resource type="Texture2D" uid="uid://bpnp3anfeowov" path="res://Sprites/tentacleAttack/tentacleattack0016.png" id="17_egb7n"]
+[ext_resource type="Texture2D" uid="uid://u0a7mfswg63l" path="res://Sprites/tentacleAttack/tentacleattack0017.png" id="18_k5w8y"]
+[ext_resource type="Texture2D" uid="uid://vvyi5lu22u1i" path="res://Sprites/tentacleAttack/tentacleattack0018.png" id="19_mh005"]
+[ext_resource type="Texture2D" uid="uid://sqiq7seq3lso" path="res://Sprites/tentacleAttack/tentacleattack0019.png" id="20_gca2q"]
+[ext_resource type="Texture2D" uid="uid://hvoljew2t5ma" path="res://Sprites/tentacleAttack/tentacleattack0020.png" id="21_f7lwm"]
+[ext_resource type="Texture2D" uid="uid://mpw25kyjmxw1" path="res://Sprites/tentacleAttack/tentacleattack0021.png" id="22_b6m7l"]
+[ext_resource type="Texture2D" uid="uid://b1xqajfqnrdhu" path="res://Sprites/tentacleAttack/tentacleattack0022.png" id="23_5c3by"]
+[ext_resource type="Texture2D" uid="uid://ce8bohbni8tcq" path="res://Sprites/tentacleAttack/tentacleattack0023.png" id="24_ivnp4"]
+[ext_resource type="Texture2D" uid="uid://dsopsu0hk7k7g" path="res://Sprites/tentacleAttack/tentacleattack0024.png" id="25_tvxtj"]
+[ext_resource type="Texture2D" uid="uid://du6j7q7go532k" path="res://Sprites/tentacleAttack/tentacleattack0025.png" id="26_ijvm3"]
+[ext_resource type="Texture2D" uid="uid://dqflw4ypwp1v6" path="res://Sprites/tentacleAttack/tentacleattack0026.png" id="27_c2r0v"]
+[ext_resource type="Texture2D" uid="uid://cjpw34x07oboy" path="res://Sprites/tentacleAttack/tentacleattack0027.png" id="28_wdjg5"]
+[ext_resource type="Texture2D" uid="uid://5tnknocqduqd" path="res://Sprites/tentacleAttack/tentacleattack0028.png" id="29_worgj"]
+[ext_resource type="Texture2D" uid="uid://bdy1yuuxcaoth" path="res://Sprites/tentacleAttack/tentacleattack0029.png" id="30_2vgol"]
+[ext_resource type="Texture2D" uid="uid://b51kt2d41wlph" path="res://Sprites/tentacleAttack/tentacleattack0030.png" id="31_gdidx"]
+[ext_resource type="Texture2D" uid="uid://cj54fa5b3402i" path="res://Sprites/tentacleAttack/tentacleattack0031.png" id="32_4njnx"]
+[ext_resource type="Texture2D" uid="uid://yqp3twdd4734" path="res://Sprites/tentacleAttack/tentacleattack0032.png" id="33_oxvpq"]
+[ext_resource type="Texture2D" uid="uid://bdfmspumglbl7" path="res://Sprites/tentacleAttack/tentacleattack0033.png" id="34_pxvyu"]
+[ext_resource type="Texture2D" uid="uid://dtii8rtq4r0b5" path="res://Sprites/tentacleAttack/tentacleattack0034.png" id="35_5d2yn"]
+[ext_resource type="Texture2D" uid="uid://8i0abrbs2geh" path="res://Sprites/tentacleAttack/tentacleattack0035.png" id="36_ebh5f"]
+[ext_resource type="Texture2D" uid="uid://bvamu7ml5iv6c" path="res://Sprites/tentacleAttack/tentacleattack0036.png" id="37_6idsj"]
+[ext_resource type="Texture2D" uid="uid://xcj2k0ghb44g" path="res://Sprites/tentacleAttack/tentacleattack0037.png" id="38_rst0f"]
+[ext_resource type="Texture2D" uid="uid://dapuij405s3u4" path="res://Sprites/tentacleAttack/tentacleattack0038.png" id="39_5scuk"]
+[ext_resource type="Texture2D" uid="uid://2rlx4kxmm75u" path="res://Sprites/tentacleAttack/tentacleattack0039.png" id="40_tvj6n"]
+[ext_resource type="Texture2D" uid="uid://b7lrv1iqnw2dl" path="res://Sprites/tentacleAttack/tentacleattack0040.png" id="41_nwsn7"]
+[ext_resource type="Texture2D" uid="uid://biiijrijm2mfj" path="res://Sprites/tentacleAttack/tentacleattack0041.png" id="42_km45x"]
+[ext_resource type="Texture2D" uid="uid://ycutas68gtyh" path="res://Sprites/tentacleAttack/tentacleattack0042.png" id="43_aw72b"]
+[ext_resource type="Texture2D" uid="uid://bfohv2m4dgk82" path="res://Sprites/tentacleAttack/tentacleattack0043.png" id="44_6xfra"]
+[ext_resource type="Texture2D" uid="uid://bw75yqeiu7fyu" path="res://Sprites/tentacleAttack/tentacleattack0044.png" id="45_pgu4w"]
+[ext_resource type="Texture2D" uid="uid://dmy88vsj21a83" path="res://Sprites/tentacleAttack/tentacleattack0045.png" id="46_ure2l"]
+[ext_resource type="Texture2D" uid="uid://bswwg36niitaj" path="res://Sprites/tentacleAttack/tentacleattack0046.png" id="47_ocq5t"]
+[ext_resource type="Texture2D" uid="uid://b2bk73h4mdrtu" path="res://Sprites/tentacleAttack/tentacleattack0047.png" id="48_v48ts"]
+[ext_resource type="Texture2D" uid="uid://b6nxayl6b4fx0" path="res://Sprites/tentacleAttack/tentacleattack0048.png" id="49_na6ui"]
+[ext_resource type="Texture2D" uid="uid://bk7wn3yceq5ch" path="res://Sprites/tentacleIdle/tentacleidle0001.png" id="50_24q5b"]
+[ext_resource type="Texture2D" uid="uid://bdplh02bejutf" path="res://Sprites/tentacleIdle/tentacleidle0002.png" id="51_yrptu"]
+[ext_resource type="Texture2D" uid="uid://m7dqric04p0q" path="res://Sprites/tentacleIdle/tentacleidle0003.png" id="52_2ovix"]
+[ext_resource type="Texture2D" uid="uid://catm2vwx5cnl0" path="res://Sprites/tentacleIdle/tentacleidle0004.png" id="53_jbqnj"]
+[ext_resource type="Texture2D" uid="uid://dtcjq40awfbu" path="res://Sprites/tentacleIdle/tentacleidle0005.png" id="54_bh016"]
+[ext_resource type="Texture2D" uid="uid://do51ppaignqvj" path="res://Sprites/tentacleIdle/tentacleidle0006.png" id="55_w8nke"]
+[ext_resource type="Texture2D" uid="uid://jxqx4wosbp6d" path="res://Sprites/tentacleIdle/tentacleidle0007.png" id="56_tbqxp"]
+[ext_resource type="Texture2D" uid="uid://b8nh6iwqvay1v" path="res://Sprites/tentacleIdle/tentacleidle0008.png" id="57_86hpk"]
+[ext_resource type="Texture2D" uid="uid://gcv27hagudi6" path="res://Sprites/tentacleIdle/tentacleidle0009.png" id="58_wh3xk"]
+[ext_resource type="Texture2D" uid="uid://bympjocnd7g3j" path="res://Sprites/tentacleIdle/tentacleidle0010.png" id="59_8wwp6"]
+[ext_resource type="Texture2D" uid="uid://b3ve2ynqo4e45" path="res://Sprites/tentacleIdle/tentacleidle0011.png" id="60_tr6pg"]
+[ext_resource type="Texture2D" uid="uid://ccd1pfnuq403m" path="res://Sprites/tentacleIdle/tentacleidle0012.png" id="61_jiorn"]
+[ext_resource type="Texture2D" uid="uid://c3pkq1li64rvb" path="res://Sprites/tentacleIdle/tentacleidle0013.png" id="62_e4cxh"]
+[ext_resource type="Texture2D" uid="uid://eeidk3ffiqfi" path="res://Sprites/tentacleIdle/tentacleidle0014.png" id="63_ceq7m"]
+[ext_resource type="Texture2D" uid="uid://br6y3ourrj8a7" path="res://Sprites/tentacleIdle/tentacleidle0015.png" id="64_8pbjb"]
+[ext_resource type="Texture2D" uid="uid://4h2ayw6y1e3b" path="res://Sprites/tentacleIdle/tentacleidle0016.png" id="65_3vjty"]
+[ext_resource type="Texture2D" uid="uid://cw5yke33624es" path="res://Sprites/tentacleIdle/tentacleidle0017.png" id="66_5vigk"]
+[ext_resource type="Texture2D" uid="uid://c72a2v3rmgytr" path="res://Sprites/tentacleIdle/tentacleidle0018.png" id="67_355fl"]
+[ext_resource type="Texture2D" uid="uid://cm2hf045md5r5" path="res://Sprites/tentacleIdle/tentacleidle0019.png" id="68_beh8q"]
+[ext_resource type="Texture2D" uid="uid://0mwkd1gg1xml" path="res://Sprites/tentacleIdle/tentacleidle0020.png" id="69_x4c8w"]
+[ext_resource type="Texture2D" uid="uid://ctfpu7qvjenvo" path="res://Sprites/tentacleIdle/tentacleidle0021.png" id="70_nhpxp"]
+[ext_resource type="Texture2D" uid="uid://dtk6w8kwkjig3" path="res://Sprites/tentacleIdle/tentacleidle0022.png" id="71_smgse"]
+[ext_resource type="Texture2D" uid="uid://cefbmkwd6awqf" path="res://Sprites/tentacleIdle/tentacleidle0023.png" id="72_bww0l"]
+[ext_resource type="Texture2D" uid="uid://bigan6sbr3io8" path="res://Sprites/tentacleIdle/tentacleidle0024.png" id="73_fj2ah"]
+[ext_resource type="Texture2D" uid="uid://djxkr3ksdfxyi" path="res://Sprites/tentacleKill/tentaclekill0001.png" id="74_2isux"]
+[ext_resource type="Texture2D" uid="uid://b4gcymsbt2lcj" path="res://Sprites/tentacleKill/tentaclekill0002.png" id="75_apicb"]
+[ext_resource type="Texture2D" uid="uid://cuwc03pv08rfv" path="res://Sprites/tentacleKill/tentaclekill0003.png" id="76_6a8ax"]
+[ext_resource type="Texture2D" uid="uid://ygy2g5c0k3uc" path="res://Sprites/tentacleKill/tentaclekill0004.png" id="77_kye2v"]
+[ext_resource type="Texture2D" uid="uid://burfyrm3omhs1" path="res://Sprites/tentacleKill/tentaclekill0005.png" id="78_fxsbu"]
+[ext_resource type="Texture2D" uid="uid://0widt6t6kuax" path="res://Sprites/tentacleKill/tentaclekill0006.png" id="79_qo7hr"]
+[ext_resource type="Texture2D" uid="uid://cclbtmnvq52u4" path="res://Sprites/tentacleKill/tentaclekill0007.png" id="80_41mcb"]
+[ext_resource type="Texture2D" uid="uid://c26xkl3j82mge" path="res://Sprites/tentacleKill/tentaclekill0008.png" id="81_223ob"]
+[ext_resource type="Texture2D" uid="uid://ctmlns1jnxmed" path="res://Sprites/tentacleKill/tentaclekill0009.png" id="82_dvybk"]
+[ext_resource type="Texture2D" uid="uid://r4xnddvf4xeu" path="res://Sprites/tentacleKill/tentaclekill0010.png" id="83_nqcmg"]
+[ext_resource type="Texture2D" uid="uid://uiieskjfobu0" path="res://Sprites/tentacleKill/tentaclekill0011.png" id="84_orpmn"]
+[ext_resource type="Texture2D" uid="uid://b8id5wx8611f1" path="res://Sprites/tentacleKill/tentaclekill0012.png" id="85_j1vcc"]
+[ext_resource type="Texture2D" uid="uid://dcbn85ydxyefd" path="res://Sprites/tentacleKill/tentaclekill0013.png" id="86_kdl8k"]
+[ext_resource type="Texture2D" uid="uid://b1wv6lp04b2h0" path="res://Sprites/tentacleKill/tentaclekill0014.png" id="87_6dagb"]
+[ext_resource type="Texture2D" uid="uid://c56ayepjup87f" path="res://Sprites/tentacleKill/tentaclekill0015.png" id="88_wsngv"]
+[ext_resource type="Texture2D" uid="uid://c8pp04toll1ei" path="res://Sprites/tentacleKill/tentaclekill0016.png" id="89_vlevq"]
+[ext_resource type="Texture2D" uid="uid://daweni7325ji" path="res://Sprites/tentacleKill/tentaclekill0017.png" id="90_2dgp0"]
+[ext_resource type="Texture2D" uid="uid://d0p6j6a4jwr67" path="res://Sprites/tentacleKill/tentaclekill0018.png" id="91_bl734"]
+[ext_resource type="Texture2D" uid="uid://cyp4feug377ly" path="res://Sprites/tentacleKill/tentaclekill0019.png" id="92_l08g8"]
+[ext_resource type="Texture2D" uid="uid://v6ba7q4jd0w8" path="res://Sprites/tentacleKill/tentaclekill0020.png" id="93_i8fmw"]
+[ext_resource type="Texture2D" uid="uid://b7n70ue2vjjxv" path="res://Sprites/tentacleKill/tentaclekill0021.png" id="94_ix3k0"]
+[ext_resource type="Texture2D" uid="uid://c5870a736hqui" path="res://Sprites/tentacleKill/tentaclekill0022.png" id="95_hxy3s"]
+[ext_resource type="Texture2D" uid="uid://bfu6wcvpr6wqt" path="res://Sprites/tentacleKill/tentaclekill0023.png" id="96_ibqun"]
+[ext_resource type="Texture2D" uid="uid://dhh3c8qsu1buj" path="res://Sprites/tentacleKill/tentaclekill0024.png" id="97_4i7ga"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fk42p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uqhnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8dses")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_054en")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xk01g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8cl1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q472e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_80ss0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y6rpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_asy5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l2qlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ty4k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_30pi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mrt62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ubylk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4bux0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_egb7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_k5w8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mh005")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gca2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_f7lwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_b6m7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_5c3by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ivnp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_tvxtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ijvm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_c2r0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wdjg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_worgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2vgol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gdidx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4njnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_oxvpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_pxvyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_5d2yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ebh5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_6idsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_rst0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_5scuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_tvj6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_nwsn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_km45x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_aw72b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_6xfra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_pgu4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ure2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ocq5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_v48ts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_na6ui")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_24q5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_yrptu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_2ovix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_jbqnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_bh016")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_w8nke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_tbqxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_86hpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_wh3xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_8wwp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_tr6pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_jiorn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_e4cxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_ceq7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_8pbjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_3vjty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_5vigk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_355fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_beh8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_x4c8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_nhpxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_smgse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_bww0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_fj2ah")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_2isux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_apicb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_6a8ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_kye2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_fxsbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_qo7hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_41mcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_223ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_dvybk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_nqcmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_orpmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_j1vcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_kdl8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_6dagb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_wsngv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_vlevq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_2dgp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_bl734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_l08g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_i8fmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_ix3k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_hxy3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_ibqun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_4i7ga")
+}],
+"loop": true,
+"name": &"Killing",
+"speed": 24.0
+}]
 
 [sub_resource type="Animation" id="Animation_i5x0v"]
 resource_name = "AttackLeft"
@@ -10,74 +411,62 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("../GrabArea/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GrabArea/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../GrabArea/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GrabArea/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.3, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -111), Vector2(0, 111), Vector2(0, -111)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AttackLeft/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
+tracks/3/path = NodePath("../AttackRight/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.7), Vector2(0.2, 0.2)]
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AttackLeft/CollisionShape2D:disabled")
+tracks/4/path = NodePath(".:animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../AttackRight/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [&"Attack"]
 }
 
 [sub_resource type="Animation" id="Animation_jg47b"]
@@ -86,74 +475,62 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("../GrabArea/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GrabArea/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../GrabArea/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../GrabArea/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0.3, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -111), Vector2(0, 111), Vector2(0, -111)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AttackLeft/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:scale")
+tracks/3/path = NodePath("../AttackRight/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.7), Vector2(0.2, 0.2)]
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AttackLeft/CollisionShape2D:disabled")
+tracks/4/path = NodePath(".:animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../AttackRight/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [&"Attack"]
 }
 
 [sub_resource type="Animation" id="Animation_3yhux"]
@@ -185,14 +562,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
+tracks/2/path = NodePath(".:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [&"Default"]
 }
 
 [sub_resource type="Animation" id="Animation_2bj17"]
@@ -202,14 +579,14 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath(".:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.2, 0.2), Vector2(0.175, 0.225), Vector2(0.2, 0.2), Vector2(0.175, 0.225), Vector2(0.2, 0.2)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Killing"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cclsd"]
@@ -232,7 +609,6 @@ _data = {
 size = Vector2(1260, 38)
 
 [node name="Tentacle" type="Area2D"]
-scale = Vector2(1, 1.7)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_kp5vb")
@@ -245,9 +621,11 @@ _spritePath = NodePath("Sprite2D")
 _animPath = NodePath("Sprite2D/AnimationPlayer")
 _maxHealth = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_3yci6")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(28, -66)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fk42p")
+animation = &"Default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
@@ -270,6 +648,7 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackLeft"]
 modulate = Color(1, 0.701961, 0, 0.431373)
+z_index = 100
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_u7xoj")
 
@@ -280,11 +659,13 @@ collision_layer = 8
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRight"]
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ppwm7")
 disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackRight"]
 modulate = Color(1, 0.701961, 0, 0.431373)
+z_index = 100
 scale = Vector2(20, 20)
 texture = SubResource("PlaceholderTexture2D_u7xoj")
 
@@ -317,6 +698,7 @@ disabled = true
 
 [connection signal="area_entered" from="." to="." method="Collide"]
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="OnAnimationFinished"]
+[connection signal="animation_started" from="Sprite2D/AnimationPlayer" to="." method="OnAnimStarted"]
 [connection signal="timeout" from="AttackTimer" to="." method="Attack"]
 [connection signal="timeout" from="WarnTimer" to="." method="Warn"]
 [connection signal="timeout" from="KillTimer" to="." method="OnKillFinished"]

@@ -13,6 +13,7 @@ _lifetime = 0.1
 speed = 2.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 101
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_3qi0a")
 

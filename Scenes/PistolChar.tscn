@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://crt3dyhw34ena"]
+[gd_scene load_steps=4 format=3 uid="uid://crt3dyhw34ena"]
 
 [ext_resource type="PackedScene" uid="uid://bjlg41rqhoe1h" path="res://Scenes/Character.tscn" id="1_200bq"]
 [ext_resource type="PackedScene" uid="uid://bnce0d6jvhrfq" path="res://Scenes/Pistol.tscn" id="2_gkbml"]
+[ext_resource type="Texture2D" uid="uid://crdg42fuwrcb2" path="res://Sprites/pistolman/pistolman.png" id="2_swvrm"]
 
 [node name="PistolChar" instance=ExtResource("1_200bq")]
+scale = Vector2(1, 1)
 _weaponPath = NodePath("Pistol")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_swvrm")
 
 [node name="Pistol" parent="." index="2" instance=ExtResource("2_gkbml")]

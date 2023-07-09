@@ -1,46 +1,59 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqmef17g06kso"]
+[gd_scene load_steps=22 format=3 uid="uid://dqmef17g06kso"]
 
 [ext_resource type="Script" path="res://Scripts/DecreaseTime.cs" id="1_j3j53"]
 [ext_resource type="Script" path="res://Scripts/Spawner.cs" id="1_ke4m2"]
 [ext_resource type="PackedScene" uid="uid://dfjkx88uh837k" path="res://Scenes/Tentacle.tscn" id="2_fbgma"]
-[ext_resource type="PackedScene" uid="uid://ephdv0lq6bis" path="res://Scenes/KnifeChar.tscn" id="3_e3307"]
 [ext_resource type="PackedScene" uid="uid://crt3dyhw34ena" path="res://Scenes/PistolChar.tscn" id="4_1lp2j"]
 [ext_resource type="Script" path="res://Scripts/PlayerInput.cs" id="4_jihxe"]
+[ext_resource type="Texture2D" uid="uid://dcwfoqibyok14" path="res://Sprites/boat.png" id="4_q5jre"]
+[ext_resource type="Texture2D" uid="uid://6jw0cch3p5xf" path="res://Sprites/shadow.png" id="5_5uyqr"]
+[ext_resource type="Texture2D" uid="uid://bwsmf4k1fp3xl" path="res://Sprites/floor.png" id="6_iy1gp"]
 [ext_resource type="Script" path="res://Scripts/CharacterChooser.cs" id="6_ngh10"]
-
-[sub_resource type="Gradient" id="Gradient_p62il"]
-offsets = PackedFloat32Array(0.473333)
-colors = PackedColorArray(0.47, 0.47, 0.47, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_qahmq"]
-noise_type = 4
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4p3t"]
-color_ramp = SubResource("Gradient_p62il")
-noise = SubResource("FastNoiseLite_qahmq")
+[ext_resource type="Shader" path="res://Dark.gdshader" id="10_81m5x"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ivxru"]
-distance = -512.0
+distance = -460.8
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ru1jy"]
 normal = Vector2(0, 1)
-distance = -512.0
+distance = -256.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yy0kd"]
 normal = Vector2(1, 0)
-distance = -387.0
+distance = -361.4
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6eq7w"]
 normal = Vector2(-1, 0)
-distance = -381.0
+distance = -355.4
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mx35d"]
+normal = Vector2(-0.202606, -0.97926)
+distance = -443.74
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bqcch"]
+normal = Vector2(0.220261, -0.975441)
+distance = -447.381
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nauru"]
+normal = Vector2(0.377297, 0.926092)
+distance = -268.601
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wfr2w"]
+normal = Vector2(-0.333579, 0.942722)
+distance = -268.197
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esa42"]
 radius = 58.5491
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0aaw"]
+shader = ExtResource("10_81m5x")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_q2kpk"]
+
 [node name="Main" type="Node2D"]
 
 [node name="TentacleTimer" type="Timer" parent="."]
-wait_time = 3.5
+wait_time = 5.0
 autostart = true
 script = ExtResource("1_j3j53")
 _div = 20000.0
@@ -51,31 +64,41 @@ script = ExtResource("1_ke4m2")
 spawnee = ExtResource("2_fbgma")
 
 [node name="Left6" type="Node2D" parent="TentacleSpawner"]
-position = Vector2(453, 964)
+position = Vector2(411, 980)
 
 [node name="Left4" type="Node2D" parent="TentacleSpawner"]
-position = Vector2(446, 505)
+position = Vector2(418, 664)
 
 [node name="Left1" type="Node2D" parent="TentacleSpawner"]
-position = Vector2(439, 69)
+position = Vector2(417, 384)
 
 [node name="Right6" type="Node2D" parent="TentacleSpawner"]
-position = Vector2(1495, 952)
+position = Vector2(1471, 932)
 
 [node name="Right4" type="Node2D" parent="TentacleSpawner"]
-position = Vector2(1495, 524)
+position = Vector2(1469, 648)
 
 [node name="Right1" type="Node2D" parent="TentacleSpawner"]
-position = Vector2(1500, 66)
+position = Vector2(1470, 402)
 
 [node name="Boat" type="StaticBody2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(960, 555)
 collision_layer = 32768
 
-[node name="Sprite2D" type="Sprite2D" parent="Boat"]
-position = Vector2(-3, 0)
-scale = Vector2(1.5, 2)
-texture = SubResource("NoiseTexture2D_k4p3t")
+[node name="Edge" type="Sprite2D" parent="Boat"]
+z_index = 10
+scale = Vector2(3, 3)
+texture = ExtResource("4_q5jre")
+
+[node name="Shadow" type="Sprite2D" parent="Boat/Edge"]
+z_index = 5
+z_as_relative = false
+texture = ExtResource("5_5uyqr")
+
+[node name="Floor" type="Sprite2D" parent="Boat/Edge"]
+z_index = -4096
+z_as_relative = false
+texture = ExtResource("6_iy1gp")
 
 [node name="Down" type="CollisionShape2D" parent="Boat"]
 shape = SubResource("WorldBoundaryShape2D_ivxru")
@@ -88,6 +111,18 @@ shape = SubResource("WorldBoundaryShape2D_yy0kd")
 
 [node name="Right" type="CollisionShape2D" parent="Boat"]
 shape = SubResource("WorldBoundaryShape2D_6eq7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boat"]
+shape = SubResource("WorldBoundaryShape2D_mx35d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boat"]
+shape = SubResource("WorldBoundaryShape2D_bqcch")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boat"]
+shape = SubResource("WorldBoundaryShape2D_nauru")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Boat"]
+shape = SubResource("WorldBoundaryShape2D_wfr2w")
 
 [node name="PlayerInput" type="Node2D" parent="."]
 script = ExtResource("4_jihxe")
@@ -104,35 +139,31 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInput/CharacterChooser/SelectArea"]
 shape = SubResource("CircleShape2D_esa42")
 
-[node name="KnifeChar" parent="." instance=ExtResource("3_e3307")]
-position = Vector2(740, 881)
-
 [node name="PistolChar" parent="." instance=ExtResource("4_1lp2j")]
-position = Vector2(1254, 301)
-
-[node name="KnifeChar2" parent="." instance=ExtResource("3_e3307")]
-position = Vector2(1156, 828)
+position = Vector2(1190, 711)
 
 [node name="PistolChar2" parent="." instance=ExtResource("4_1lp2j")]
-position = Vector2(735, 334)
-
-[node name="KnifeChar3" parent="." instance=ExtResource("3_e3307")]
-position = Vector2(1203, 435)
+position = Vector2(747, 484)
 
 [node name="PistolChar3" parent="." instance=ExtResource("4_1lp2j")]
 position = Vector2(776, 665)
 
-[node name="KnifeChar4" parent="." instance=ExtResource("3_e3307")]
-position = Vector2(979, 727)
-
 [node name="PistolChar4" parent="." instance=ExtResource("4_1lp2j")]
 position = Vector2(913, 502)
 
-[node name="KnifeChar5" parent="." instance=ExtResource("3_e3307")]
-position = Vector2(1052, 127)
-
 [node name="PistolChar5" parent="." instance=ExtResource("4_1lp2j")]
 position = Vector2(1012, 365)
+
+[node name="PistolChar6" parent="." instance=ExtResource("4_1lp2j")]
+position = Vector2(960, 802)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1150
+z_as_relative = false
+material = SubResource("ShaderMaterial_n0aaw")
+position = Vector2(978.75, 555.75)
+scale = Vector2(1958.5, 1112.5)
+texture = SubResource("PlaceholderTexture2D_q2kpk")
 
 [connection signal="timeout" from="TentacleTimer" to="TentacleSpawner" method="Spawn"]
 [connection signal="body_entered" from="PlayerInput/CharacterChooser/SelectArea" to="PlayerInput/CharacterChooser" method="Select"]

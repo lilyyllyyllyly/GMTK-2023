@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://ephdv0lq6bis"]
+[gd_scene load_steps=4 format=3 uid="uid://ephdv0lq6bis"]
 
 [ext_resource type="PackedScene" uid="uid://bjlg41rqhoe1h" path="res://Scenes/Character.tscn" id="1_q3xe8"]
+[ext_resource type="Texture2D" uid="uid://bv5lomji1v637" path="res://Sprites/knifeman/knifeman.png" id="2_8fqdc"]
 [ext_resource type="PackedScene" uid="uid://40dptmvef1v8" path="res://Scenes/Knife.tscn" id="2_55lhd"]
 
 [node name="KnifeChar" instance=ExtResource("1_q3xe8")]
+scale = Vector2(1, 1)
 _weaponPath = NodePath("Knife")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_8fqdc")
 
 [node name="Knife" parent="." index="2" instance=ExtResource("2_55lhd")]
